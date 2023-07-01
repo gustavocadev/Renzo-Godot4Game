@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://j5oicl28qg21"
+path="res://.godot/imported/6 - Story.ogg-343f74149c79f383d5b39e71b91af261.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Resources/Musics/6 - Story.ogg"
+dest_files=["res://.godot/imported/6 - Story.ogg-343f74149c79f383d5b39e71b91af261.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
