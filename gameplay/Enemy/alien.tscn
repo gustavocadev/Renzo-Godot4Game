@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://7718888b55mu"]
+[gd_scene load_steps=19 format=3 uid="uid://7718888b55mu"]
 
 [ext_resource type="Texture2D" uid="uid://bco486yflvhmt" path="res://assets/Resources/AlienSprites/alien-walk-down.png" id="1_1igns"]
+[ext_resource type="Script" path="res://gameplay/Enemy/alien.gd" id="1_ng1bd"]
 [ext_resource type="Texture2D" uid="uid://c14byb1hg2h1k" path="res://assets/Resources/AlienSprites/alien-walk-right.png" id="2_bt4ie"]
+[ext_resource type="Texture2D" uid="uid://bat35hh6xyir1" path="res://assets/Resources/AlienSprites/alien-walk-up.png" id="4_fanvh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4e8ko"]
 radius = 15.0
@@ -39,6 +41,22 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("2_bt4ie")
 region = Rect2(64, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdkfo"]
+atlas = ExtResource("4_fanvh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnfkg"]
+atlas = ExtResource("4_fanvh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awa00"]
+atlas = ExtResource("4_fanvh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgwdm"]
+atlas = ExtResource("4_fanvh")
+region = Rect2(64, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7thl5"]
 animations = [{
 "frames": [{
@@ -74,9 +92,27 @@ animations = [{
 "loop": true,
 "name": &"Walk_Left_Right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdkfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnfkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awa00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgwdm")
+}],
+"loop": true,
+"name": &"Walk_Up",
+"speed": 5.0
 }]
 
 [node name="Alien" type="CharacterBody2D"]
+script = ExtResource("1_ng1bd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17)
@@ -86,4 +122,4 @@ shape = SubResource("CapsuleShape2D_4e8ko")
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7thl5")
-animation = &"Walk_Down"
+animation = &"Walk_Up"
