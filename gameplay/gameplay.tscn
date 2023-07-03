@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=12 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="Texture2D" uid="uid://ffkgnjaapmud" path="res://assets/Resources/Backgrounds/Tilesets/TilesetFloor.png" id="2_h0x2f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="4_7kf0b"]
 [ext_resource type="PackedScene" uid="uid://cnlivditkyw14" path="res://gameplay/Player/renzo_character.tscn" id="5_d1i07"]
 [ext_resource type="PackedScene" uid="uid://7718888b55mu" path="res://gameplay/Enemy/alien.tscn" id="7_ptm41"]
+[ext_resource type="PackedScene" uid="uid://dvq17vf5jmxah" path="res://gameplay/hearts_container/hearts_container.tscn" id="8_6ltke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i622v"]
 texture = ExtResource("2_h0x2f")
@@ -2195,14 +2196,6 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array(4653222, 196609, 18, 5374125, 196609, 18, 4391087, 196609, 18, 786598, 1, 18, 524463, 1, 18, 196777, 1, 18, 3014728, 327681, 9, 2228298, 262145, 8, 1900604, 262145, 8, 2490382, 262145, 8)
 
-[node name="Paused" parent="." instance=ExtResource("3_w8wrl")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="SelectSfx" parent="." instance=ExtResource("4_7kf0b")]
 
 [node name="RenzoCharacter" parent="." instance=ExtResource("5_d1i07")]
@@ -2211,5 +2204,18 @@ position = Vector2(184, 291)
 [node name="Alien" parent="." instance=ExtResource("7_ptm41")]
 position = Vector2(1081, 295)
 
-[node name="Marker2D" type="Marker2D" parent="Alien"]
-position = Vector2(62, 83)
+[node name="Paused" parent="." instance=ExtResource("3_w8wrl")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("8_6ltke")]
+offset_left = 130.0
+offset_top = 20.0
+offset_right = 130.0
+offset_bottom = 20.0

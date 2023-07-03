@@ -4,6 +4,9 @@ const SPEED = 300.0
 
 @onready var anim = get_node("AnimationPlayer")
 
+@export var maxHealth = 3
+@onready var currentHealth: int = maxHealth
+
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -30,3 +33,6 @@ func _physics_process(delta):
 	if velocity.length() == 0:
 		anim.stop()
 	move_and_slide()
+
+
+

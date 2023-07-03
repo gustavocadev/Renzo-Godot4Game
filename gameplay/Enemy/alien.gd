@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal healthChanged
+
 const speed = 60
 const limit = 0.5
 
@@ -31,9 +33,18 @@ func updateAnimation():
 	var animationString = "Walk_Up"
 	if velocity.y > 0:
 		animationString = "Walk_Down"
-	anim.play(animationString)
+	anim.play(animationString)	
 	
 func _physics_process(delta):
 	updateVelocity()
 	move_and_slide()
 	updateAnimation()
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == 'RenzoCharacter':
+		if body.currentHealth < 0:
+			body.currentHealth = body.maxHealth
+		body.currentHealth -= 1	
+		healthChanged.emit(body.currentHealth)
+		

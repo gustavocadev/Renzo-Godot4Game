@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnlivditkyw14"]
+[gd_scene load_steps=15 format=3 uid="uid://cnlivditkyw14"]
 
 [ext_resource type="Script" path="res://gameplay/Player/renzo_character.gd" id="1_h7xrf"]
 [ext_resource type="Texture2D" uid="uid://bwpim3tfpp08y" path="res://assets/Renzo/RenzoWalkDown2.png" id="2_8vgay"]
@@ -149,6 +149,8 @@ _data = {
 "Walk_Up": SubResource("Animation_nae84")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkw84"]
+
 [node name="RenzoCharacter" type="CharacterBody2D"]
 script = ExtResource("1_h7xrf")
 
@@ -172,3 +174,11 @@ limit_bottom = 600
 libraries = {
 "": SubResource("AnimationLibrary_d1wtr")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -21)
+shape = SubResource("RectangleShape2D_vkw84")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

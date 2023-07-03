@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://7718888b55mu"]
+[gd_scene load_steps=20 format=3 uid="uid://7718888b55mu"]
 
 [ext_resource type="Texture2D" uid="uid://bco486yflvhmt" path="res://assets/Resources/AlienSprites/alien-walk-down.png" id="1_1igns"]
 [ext_resource type="Script" path="res://gameplay/Enemy/alien.gd" id="1_ng1bd"]
@@ -111,6 +111,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqk2x"]
+size = Vector2(32, 34)
+
 [node name="Alien" type="CharacterBody2D"]
 script = ExtResource("1_ng1bd")
 
@@ -123,3 +126,11 @@ position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7thl5")
 animation = &"Walk_Up"
+
+[node name="PlayerCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_hqk2x")
+
+[connection signal="body_entered" from="PlayerCollision" to="." method="_on_area_2d_body_entered"]
