@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-signal healthChanged
 
 const speed = 60
 const limit = 0.5
@@ -43,8 +42,9 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == 'RenzoCharacter':
-		if body.currentHealth < 0:
-			body.currentHealth = body.maxHealth
-		body.currentHealth -= 1	
-		healthChanged.emit(body.currentHealth)
-		
+		if Game.playerHP <= 1:
+			queue_free()
+			get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
+			
+		Game.playerHP -= 1
+

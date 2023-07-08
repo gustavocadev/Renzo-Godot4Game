@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://blexpjualapuj"]
+
+[ext_resource type="Texture2D" uid="uid://bbiyu1gftc4ov" path="res://assets/vino.png" id="1_7emej"]
+[ext_resource type="Script" path="res://gameplay/coins/vino.gd" id="1_cg8x3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_omce4"]
+radius = 16.0312
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rr8gg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7emej")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Vino" type="Area2D"]
+script = ExtResource("1_cg8x3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_omce4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.84217e-14, -2)
+scale = Vector2(0.484375, 0.484375)
+sprite_frames = SubResource("SpriteFrames_rr8gg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

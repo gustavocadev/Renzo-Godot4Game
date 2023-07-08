@@ -1,7 +1,7 @@
-extends Panel
+extends Camera2D
 
 
-@onready var sprite = $Sprite2D
+@export var tilemap: TileMap
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +11,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func update(whole: bool):
-	if whole: 
-		sprite.frame = 0
-	else:
-		sprite.frame = 4 
-	

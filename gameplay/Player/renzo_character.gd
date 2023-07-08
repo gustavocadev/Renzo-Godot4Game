@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
+var player_alive = true
+
 
 @onready var anim = get_node("AnimationPlayer")
 
-@export var maxHealth = 3
-@onready var currentHealth: int = maxHealth
+@export var knockbackPower: int = 500
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -32,7 +33,9 @@ func _physics_process(delta):
 		anim.play("Walk_Down")
 	if velocity.length() == 0:
 		anim.stop()
+		
 	move_and_slide()
+
 
 
 
