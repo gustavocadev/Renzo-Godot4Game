@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const speed = 60
 const limit = 0.5
 

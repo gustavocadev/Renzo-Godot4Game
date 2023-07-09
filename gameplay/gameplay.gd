@@ -5,7 +5,7 @@ extends Node2D
 
 func _ready():
 	# Reset HP
-	Game.playerHP = 3
+	Game.playerHP = Game.playerMaxHP
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("pause"):
