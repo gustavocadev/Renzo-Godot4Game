@@ -2444,13 +2444,13 @@ por tener una cabeza muy grande 🥹"
 layout_mode = 0
 offset_left = 1151.0
 offset_top = -29.0
-offset_right = 1706.0
-offset_bottom = 73.0
+offset_right = 1561.0
+offset_bottom = 107.0
 theme_override_font_sizes/font_size = 22
 text = "Renzo, recuerda que cuando era joven
-soñaba con ser ingeniero de sistemas,
+soñaba con ser ingeniero,
 pero por diferentes circunstancias,
-ese sueño no pudo hacerse realidad :("
+ese sueño no pudo hacerse realidad"
 
 [node name="Label5" type="Label" parent="Label"]
 layout_mode = 0
@@ -2540,14 +2540,17 @@ esto es la realidad?"
 
 [node name="Label3" type="Label" parent="Label"]
 layout_mode = 0
-offset_left = 514.0
-offset_top = 402.0
-offset_right = 814.0
-offset_bottom = 538.0
+offset_left = 379.0
+offset_top = 354.0
+offset_right = 908.0
+offset_bottom = 558.0
 theme_override_font_sizes/font_size = 22
-text = "Siento un profundo dolor en
-mi corazón, duele, duele
-demasiado..."
+text = "Renzo empieza a revivir recuerdos molestos. 
+Por algún extraño motivo,
+ha desarrollado un instinto de defensa.
+El comportamiento de Renzo se transformó: 
+sus impulsos son automáticos; actúa por instinto, 
+no piensa lo suficiente."
 
 [node name="Alien" parent="." instance=ExtResource("7_ptm41")]
 position = Vector2(8885, 367)
